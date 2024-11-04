@@ -1,0 +1,31 @@
+#!/usr/bin/bash
+url="https://ws.smn.gob.ar"
+
+
+###################################################################
+# Help Function
+##################################################################
+Help () {
+    echo 'API for Servicio Metereológico Nacional (SMN)'
+}
+# "Capital Federal" "Buenos Aires"
+get_weather () {
+    # return a json with the weather on all locations
+    curl "${url}/map_items/weather"
+}
+
+###################################################################
+# Main Program
+##################################################################
+OPTSTRING=":hw"
+while getopts ${OPTSTRING} opt;do
+    case $opt in
+        h) #Displays Help
+            Help
+            exit;;
+        w) #Get weather prediction
+            get_weather
+            exit;;
+    esac
+done
+
