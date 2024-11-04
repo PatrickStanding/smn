@@ -11,7 +11,7 @@ Help () {
 # "Capital Federal" "Buenos Aires"
 get_weather () {
     # return a json with the weather on all locations
-    curl "${url}/map_items/weather"
+    curl -sS "${url}/map_items/weather"
 }
 
 ###################################################################
